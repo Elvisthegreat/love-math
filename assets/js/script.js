@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+      /**Code to achieve a enter on keyboard intead of using the mouse to press enter */
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter"){
+            checkAnswer();
+        }
+        
+    })
 
     runGame("addition");
 
@@ -24,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = ""; // Automatic empty box
+    document.getElementById("answer-box").focus(); // The focus help our cursor remain in the box
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
